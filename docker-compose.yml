@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  app:
+    image: lscr.io/linuxserver/librespeed:latest
+    environment:
+      - USER_UID=1000 #adjust to your system
+      - USER_GID=100 #adjust to your system
+      - PASSWORD=PASSWORD
+      - CUSTOM_RESULTS=true
+      - DB_TYPE=sqlite
+      - DB_NAME=DB_NAME
+      - DB_HOSTNAME=DB_HOSTNAME
+      - DB_USERNAME=DB_USERNAME
+      - DB_PASSWORD=DB_PASSWORD
+      - DB_PORT=DB_PORT
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - config:/config
+    ports:
+      - 80
+      - 443
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+      placement:
+        constraints:
+          - node.labels.pop == ${PE_NAME}
+
+volumes:
+  config:
