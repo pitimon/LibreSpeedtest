@@ -2,8 +2,8 @@ version: '3'
 
 services:
   app:
-    image: adolfintel/speedtest:latest
-#    image: lscr.io/linuxserver/librespeed:latest
+#    image: adolfintel/speedtest:latest
+    image: lscr.io/linuxserver/librespeed:latest
     environment:
       - USER_UID=1000 #adjust to your system
       - USER_GID=100 #adjust to your system
@@ -20,8 +20,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - config:/config
     ports:
-#      - ${HOST_PORT}:80
-      - 80
+      - ${HOST_PORT}:80
 #      - 443
     deploy:
       replicas: 1
