@@ -4,19 +4,19 @@ services:
   app:
 #    image: adolfintel/speedtest:latest
     image: lscr.io/linuxserver/librespeed:latest
-    shm_size: '512mb'
+    shm_size: '128mb'
     environment:
 #      - USER_UID=1000 #adjust to your system
 #      - USER_GID=100 #adjust to your system
       - TZ=Asia/Bangkok
-      - PASSWORD=PASSWORD
-      - CUSTOM_RESULTS=true
-      - DB_TYPE=sqlite
-      - DB_NAME=DB_NAME
-      - DB_HOSTNAME=DB_HOSTNAME
-      - DB_USERNAME=DB_USERNAME
-      - DB_PASSWORD=DB_PASSWORD
-      - DB_PORT=DB_PORT
+#      - PASSWORD=PASSWORD
+#      - CUSTOM_RESULTS=true
+#      - DB_TYPE=sqlite
+#      - DB_NAME=DB_NAME
+#      - DB_HOSTNAME=DB_HOSTNAME
+#      - DB_USERNAME=DB_USERNAME
+#      - DB_PASSWORD=DB_PASSWORD
+#      - DB_PORT=DB_PORT
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
